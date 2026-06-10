@@ -10,13 +10,24 @@ aliases: [MCP, 模型上下文协议]
 
 # Model Context Protocol (MCP)
 
-Model Context Protocol（模型上下文协议）是由 Anthropic 提出的开放协议，旨在标准化应用程序如何向 LLM 提供上下文信息。
+Model Context Protocol（模型上下文协议）是由 Anthropic 提出的开放标准协议，旨在标准化 AI 模型与外部数据源、工具和服务之间的通信接口。
 
-> **注意：** 本页面基于源文件名和已有知识编写。PDF 原文的具体内容在进一步提取后可精细化。
+> 本文结合了 PDF 资料与 [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]]（第 6 节）的内容。
 
 ## 核心思想
 
-MCP 解决的是 LLM 应用中一个根本性问题：如何让模型安全、高效地访问所需的外部数据和工具。在 MCP 之前，每个 LLM 集成都需要自定义的集成方案。MCP 提供了一个通用标准，类似 USB 为外设提供的标准化接口。
+MCP 解决的是 AI 生态中面临的 **M×N 集成问题**——有 M 个 AI 应用和 N 个外部工具时，传统方式需要 M×N 个定制集成。MCP 引入一个标准协议层，将 M×N 问题降维为 **M+N 问题**——每个 AI 应用只需实现一次 MCP 客户端，每个工具只需实现一次 MCP 服务端。
+
+类比：MCP 就像 **AI 世界的 USB 标准**。在 USB 出现之前，每个外设需要不同接口和驱动。USB 统一了连接方式。同理，MCP 统一了 AI 模型与所有外部工具的连接方式。
+
+## 工作流程
+
+MCP 的交互分为四个阶段：
+
+1. **连接建立**：Client 初始化并协商协议版本和能力
+2. **工具发现**：Client 请求 Server 列出所有可用工具
+3. **工具调用**：Client 调用指定工具并传递参数，Server 执行并返回结果
+4. **资源读取**：Client 按需读取 Server 暴露的数据资源
 
 ## 关键概念
 
@@ -40,6 +51,16 @@ MCP 采用客户端-服务器架构：
 - 预定义的提示模板
 - 帮助标准化常见交互模式
 
+## MCP vs 其他集成方式
+
+| 维度 | MCP | OpenAI Plugins | LangChain Tools | 定制 API 集成 |
+|------|-----|---------------|-----------------|------------|
+| 标准化程度 | ✅ 开放标准 | ❌ 平台私有 | ⚠️ 框架绑定 | ❌ 无标准 |
+| 集成复杂度 | O(M+N) | O(M+N) 但封闭 | O(M+N) 但框架锁定 | O(M×N) |
+| 跨平台互操作 | ✅ 任何 MCP 客户端 | ❌ 仅 ChatGPT | ⚠️ 仅 LangChain | ❌ 一对一 |
+| 安全机制 | ✅ 协议层统一 | ✅ 平台管控 | ⚠️ 自行实现 | ⚠️ 自行实现 |
+| 传输方式 | stdio / HTTP+SSE | HTTP | Python 函数调用 | 各异 |
+
 ## 应用场景
 
 1. **代码开发** — LLM 通过 MCP 访问代码库、文档和开发工具
@@ -47,6 +68,7 @@ MCP 采用客户端-服务器架构：
 3. **知识管理** — 与本笔记库中 [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] 结合，作为搜索和检索工具
 4. **DevOps** — 访问监控系统、部署管道等
 5. **Skill 工具层** — 为 [[wiki/concepts/skill-system|Skill 系统]] 提供标准化的外部服务连接
+6. **IDE 集成** — Cursor、Windsurf 通过 MCP 连接数据库/Git/文档，无需切换窗口
 
 ## MCP 与 Skill 的关系
 
@@ -67,13 +89,26 @@ MCP 可以作为 LLM Wiki 架构中的工具层：
 - 标准化的协议使得工具接入更模块化
 - LLM 可以通过 MCP 工具更高效地维护维基
 
+## 未来展望
+
+MCP 解决了"AI 与工具的标准化连接"，而 Google 的 **A2A（Agent-to-Agent）** 协议解决"Agent 与 Agent 的标准化通信"。两者成熟后，可能出现"Agent 互联网"——数十亿 Agent 像网站一样互联互通。
+
+## 安全最佳实践
+
+- **最小权限原则**：MCP Server 只暴露必要的资源和工具
+- **协议版本协商**：initialize 阶段严格校验版本兼容性
+- **异步处理**：长时间运行的工具调用使用异步模式或进度通知
+- **避免硬编码凭证**：MCP Server 通过环境变量统一管理鉴权
+
 ## 相关概念
 
 - [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]]
 - [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]]
 - [[wiki/concepts/skill-system|Skill 系统]] — MCP 作为 Skill 的外部服务连接层
+- [[wiki/concepts/ai-agent|AI Agent]] — MCP 作为 Agent 架构的标准化工具协议层
 
 ## 参考源
 
 - [[wiki/sources/mcp-paper|Agent 工具与 MCP 协议]]
 - [[wiki/sources/skill-practical-guide|Skill 实战经验手册]] — 第 6 章详细讨论 MCP vs HTTP
+- [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]] — 第 6 节详细剖析 MCP

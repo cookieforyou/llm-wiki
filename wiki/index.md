@@ -1,11 +1,12 @@
 # wiki 索引
 
 > 最后更新：2026-06-10
-> 页面总数：11
+> 页面总数：13
 
 ## 概念
 
 - [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] — 基于 LLM 的持久化知识库构建方法论
+- [[wiki/concepts/ai-agent|AI Agent]] — 十大核心概念融合的自主智能体（枢纽页面）
 - [[wiki/concepts/model-context-protocol|Model Context Protocol (MCP)]] — Anthropic 提出的标准化模型上下文协议
 - [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]] — Claude Code 的持久化指令配置机制
 - [[wiki/concepts/skill-system|Skill 系统]] — AI 编程助手的结构化能力包机制
@@ -17,6 +18,7 @@
 - [[wiki/sources/mcp-paper|Agent 工具与 MCP 协议]] — 关于 Agent 工具和模型上下文协议的 PDF 资料
 - [[wiki/sources/skill-beginners-tutorial|Skill 保姆级入门教程]] — Skill 编写的小白入门教程（优设网/阿真）
 - [[wiki/sources/skill-practical-guide|Skill 实战经验手册]] — Skill 编写的系统性实战指南（腾讯技术工程）
+- [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]] — AI Agent 十大核心概念的全息解构
 
 ## 文档
 

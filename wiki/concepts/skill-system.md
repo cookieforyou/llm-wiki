@@ -175,6 +175,31 @@ Anthropic Skill Creator 提供系统化评估：
 2. **效果评估**：基于测试用例，对比"有 Skill"和"无 Skill"的输出质量
 3. **达标标准**：触发准确率 ≥ 85%，效果通过率 ≥ 80%
 
+## 在 Agent 架构中的定位
+
+在 [[wiki/concepts/ai-agent|AI Agent]] 的十大核心概念架构中，Skills 属于**能力封装层**：
+
+| 层级 | 概念 | 类比 |
+|------|------|------|
+| 协议层 | MCP | USB 标准（通信标准） |
+| 中间层 | Function Calling | 单个函数调用（原子操作） |
+| **高层** | **Skills** | **完整能力封装（应用模块）** |
+
+- **Skills** 是对完整能力的封装（"我有数据分析能力"）
+- **Function Calling** 是 Skills 的一种底层实现方式
+- **MCP** 是 Skills 调用外部服务的标准化接口协议
+
+## Skill 生态系统
+
+成熟的 Skill 系统包含以下组件：
+
+```
+Skill Registry（注册中心） → 管理所有可用技能
+Skill Discovery（发现）    → 根据任务自动匹配技能
+Skill Composition（编排）  → 多个技能组合为工作流
+Skill Marketplace（市场）  → 技能的共享和分发平台
+```
+
 ## 与 MCP 的关系
 
 Skill 需要调用外部服务时有两种选择：
@@ -191,9 +216,11 @@ Skill 需要调用外部服务时有两种选择：
 
 - [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]] — Skill 的配置文件体系
 - [[wiki/concepts/model-context-protocol|Model Context Protocol (MCP)]] — Skill 外部服务调用的标准化方式
+- [[wiki/concepts/ai-agent|AI Agent]] — Skills 在 Agent 架构中的定位
 - [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] — 本知识库的方法论基础
 
 ## 参考源
 
 - [[wiki/sources/skill-beginners-tutorial|Skill 保姆级入门教程]]
 - [[wiki/sources/skill-practical-guide|Skill 实战经验手册]]
+- [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]] — 第 9 节：Skills 系统视角

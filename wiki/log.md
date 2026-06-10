@@ -29,3 +29,9 @@
 - **操作：** ingest
 - **涉及页面：** [[wiki/sources/skill-beginners-tutorial]], [[wiki/sources/skill-practical-guide]], [[wiki/concepts/skill-system]], [[wiki/concepts/model-context-protocol]], [[wiki/index.md]]
 - **要点：** 处理 raw/clippings/ 中新增的两篇 Skill 教程文章（保姆级入门教程 + 腾讯实战经验手册）。创建 2 个源摘要页面，创建 Skill 系统概念页面（涵盖三层加载机制、description 编写、反模式、安全规范、工程化评估等），更新 MCP 页面补充 Skill-MCP 关系。
+
+## [2026-06-10] ingest | AI Agent 十大核心概念深度剖析
+
+- **操作：** ingest
+- **涉及页面：** [[wiki/sources/ai-agent-10-core-concepts]], [[wiki/concepts/ai-agent]], [[wiki/concepts/model-context-protocol]], [[wiki/concepts/skill-system]], [[wiki/index.md]]
+- **要点：** 处理 raw/articles/ 中新增的 AI Agent 深度剖析文章（12.8 万字，10 个概念 × 6 维度）。创建源摘要页面，创建 AI Agent 概念页面作为十大概念的聚合枢纽（含分层架构、完整工作流、落地路线图），更新 MCP 页面补充 M×N 问题框架和跨方案对比，更新 Skill 页面补充 Agent 架构定位和生态视角。

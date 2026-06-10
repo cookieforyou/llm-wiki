@@ -4,20 +4,20 @@
   "title": "Initialize knowledge base from article methodology",
   "titleGenerationStatus": "success",
   "createdAt": 1781064477878,
-  "updatedAt": 1781093007820,
-  "lastResponseAt": 1781093007820,
+  "updatedAt": 1781106420748,
+  "lastResponseAt": 1781106420748,
   "sessionId": "3883bbfc-7fc2-46b4-acb6-db09c8132d8a",
   "providerState": {
     "providerSessionId": "3883bbfc-7fc2-46b4-acb6-db09c8132d8a"
   },
   "usage": {
     "model": "haiku",
-    "inputTokens": 489,
+    "inputTokens": 463,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 108544,
+    "cacheReadInputTokens": 162432,
     "contextWindow": 200000,
-    "contextTokens": 109033,
-    "percentage": 55,
+    "contextTokens": 162895,
+    "percentage": 81,
     "contextWindowIsAuthoritative": true
   }
 }

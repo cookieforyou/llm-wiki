@@ -51,31 +51,17 @@
             }
           },
           {
-            "id": "515e457a0a508655",
+            "id": "5937a0b60840a3a2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/sources/claude-memory-guide.md",
+                "file": "raw/articles/AI Agent 十大核心概念深度剖析.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "claude-memory-guide"
-            }
-          },
-          {
-            "id": "4f2f7cd7e670e094",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "保姆级教程！手把手教你写出好用又安全的专属 Skill"
+              "title": "AI Agent 十大核心概念深度剖析"
             }
           }
         ],
@@ -253,28 +239,30 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e2c5b6a0bda73ee3",
+  "active": "32f4a6eb3838aa51",
   "lastOpenFiles": [
-    "wiki/concepts/skill-system.md",
+    "wiki/concepts/ai-agent.md",
+    "wiki/sources/ai-agent-10-core-concepts.md",
+    "LLM Wiki.md",
+    "raw/clippings/Claude 如何记住你的项目.md",
+    "CLAUDE.md",
     "wiki/sources/skill-practical-guide.md",
-    "wiki/sources/skill-beginners-tutorial.md",
     "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
-    "wiki/sources/claude-memory-guide.md",
+    "wiki/index.md",
+    "wiki/sources/skill-beginners-tutorial.md",
+    "wiki/concepts/skill-system.md",
+    "wiki/sources/mcp-paper.md",
     "wiki/concepts/model-context-protocol.md",
+    "wiki/sources/llm-wiki-idea.md",
     "wiki/concepts/llm-wiki-methodology.md",
     "wiki/concepts/claude-md-configuration.md",
+    "wiki/sources/claude-memory-guide.md",
     "raw/clippings/如何写好 Skill：一份实战经验手册.md",
-    "LLM Wiki.md",
     "Clippings/如何写好 Skill：一份实战经验手册.md",
     "Clippings",
-    "CLAUDE.md",
     "LLM Wiki 方法论.md",
-    "wiki/sources/llm-wiki-idea.md",
-    "wiki/sources/mcp-paper.md",
     "wiki/log.md",
-    "wiki/index.md",
     "raw/papers/Agent工具与模型上下文协议MCP.pdf",
-    "raw/clippings/Claude 如何记住你的项目.md",
     "Clippings/Claude 如何记住你的项目.md",
     "wiki/sources",
     "wiki/queries",
