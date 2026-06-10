@@ -1,0 +1,24 @@
+{
+  "id": "conv-1781064477864-qzxp3v10d",
+  "providerId": "claude",
+  "title": "Initialize knowledge base from article methodology",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781064477878,
+  "updatedAt": 1781065503510,
+  "lastResponseAt": 1781065503510,
+  "sessionId": "3883bbfc-7fc2-46b4-acb6-db09c8132d8a",
+  "providerState": {
+    "providerSessionId": "3883bbfc-7fc2-46b4-acb6-db09c8132d8a"
+  },
+  "currentNote": "LLM Wiki.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 283,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 66304,
+    "contextWindow": 200000,
+    "contextTokens": 66587,
+    "percentage": 33,
+    "contextWindowIsAuthoritative": true
+  }
+}

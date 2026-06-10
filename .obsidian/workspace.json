@@ -1,0 +1,281 @@
+{
+  "main": {
+    "id": "2854624bba3f7cdd",
+    "type": "split",
+    "children": [
+      {
+        "id": "42ec81a36c6dea4c",
+        "type": "split",
+        "children": [
+          {
+            "id": "ba025859606848b0",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "866f84411a885861",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "LLM Wiki.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "LLM Wiki"
+                }
+              }
+            ]
+          },
+          {
+            "id": "b853db3264119aa9",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "1c01f4768b7d6a05",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "/Users/ben/Documents/NotesMatrix",
+                      "focus": false,
+                      "profile": {
+                        "args": [
+                          "--login"
+                        ],
+                        "executable": "/bin/zsh",
+                        "followTheme": true,
+                        "name": "",
+                        "platforms": {
+                          "darwin": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "profileSourceId": "darwinIntegratedDefault",
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "终端：zsh"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f71612f5b360bf53",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f9407a1f6061e91",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32f4a6eb3838aa51",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "918193f499c74a65",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "e57f676f3e2be13f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c8bbec5cb869c5f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7445ed61f14d4aa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d22c495ed34aeea0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Clippings/Claude 如何记住你的项目.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Claude 如何记住你的项目 的反向链接列表"
+            }
+          },
+          {
+            "id": "4ccc5da43044eb69",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Clippings/Claude 如何记住你的项目.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Claude 如何记住你的项目 的出链列表"
+            }
+          },
+          {
+            "id": "7530c11dce8d9dfe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "1dbf1a034fbd7600",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ecfa705847ff9d56",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Clippings/Claude 如何记住你的项目.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Claude 如何记住你的项目 的大纲"
+            }
+          },
+          {
+            "id": "e2c5b6a0bda73ee3",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 476.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "terminal:Open terminal": false,
+      "realclaudian:Open Claudian": false
+    }
+  },
+  "active": "1c01f4768b7d6a05",
+  "lastOpenFiles": [
+    "LLM Wiki.md",
+    "CLAUDE.md",
+    "LLM Wiki 方法论.md",
+    "wiki/concepts/claude-md-configuration.md",
+    "wiki/sources/llm-wiki-idea.md",
+    "wiki/concepts/llm-wiki-methodology.md",
+    "wiki/concepts/model-context-protocol.md",
+    "wiki/sources/mcp-paper.md",
+    "wiki/sources/claude-memory-guide.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "raw/papers/Agent工具与模型上下文协议MCP.pdf",
+    "raw/clippings/Claude 如何记住你的项目.md",
+    "Clippings/Claude 如何记住你的项目.md",
+    "wiki/sources",
+    "wiki/queries",
+    "wiki/concepts",
+    "wiki",
+    "raw/papers",
+    "raw/clippings",
+    "raw/assets",
+    "raw/articles",
+    "raw",
+    "欢迎.md"
+  ]
+}
