@@ -1,0 +1,24 @@
+{
+  "id": "conv-1781092720239-px8idcnlu",
+  "providerId": "claude",
+  "title": "整理 NotesMatrix 新增剪藏源",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781092720241,
+  "updatedAt": 1781092912568,
+  "lastResponseAt": 1781092746935,
+  "sessionId": "a7c5fcb7-8443-4a83-a88c-66be130e3c82",
+  "providerState": {
+    "providerSessionId": "a7c5fcb7-8443-4a83-a88c-66be130e3c82"
+  },
+  "currentNote": "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 38269,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 32000,
+    "contextWindow": 200000,
+    "contextTokens": 70269,
+    "percentage": 35,
+    "contextWindowIsAuthoritative": true
+  }
+}

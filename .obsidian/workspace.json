@@ -4,80 +4,82 @@
     "type": "split",
     "children": [
       {
-        "id": "42ec81a36c6dea4c",
-        "type": "split",
+        "id": "b853db3264119aa9",
+        "type": "tabs",
         "children": [
           {
-            "id": "ba025859606848b0",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "866f84411a885861",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "LLM Wiki.md",
-                    "mode": "source",
-                    "source": false
+            "id": "1c01f4768b7d6a05",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "terminal:terminal",
+              "state": {
+                "terminal:terminal": {
+                  "cwd": "/Users/ben/Documents/NotesMatrix",
+                  "focus": false,
+                  "profile": {
+                    "args": [
+                      "--login"
+                    ],
+                    "executable": "/bin/zsh",
+                    "followTheme": true,
+                    "name": "",
+                    "platforms": {
+                      "darwin": true
+                    },
+                    "pythonExecutable": "python3",
+                    "restoreHistory": false,
+                    "rightClickAction": "copyPaste",
+                    "successExitCodes": [
+                      "0",
+                      "SIGINT",
+                      "SIGTERM"
+                    ],
+                    "terminalOptions": {
+                      "documentOverride": null
+                    },
+                    "type": "integrated",
+                    "useWin32Conhost": true
                   },
-                  "icon": "lucide-file",
-                  "title": "LLM Wiki"
+                  "profileSourceId": "darwinIntegratedDefault",
+                  "serial": null
                 }
-              }
-            ]
+              },
+              "pinned": true,
+              "icon": "terminal",
+              "title": "终端：zsh"
+            }
           },
           {
-            "id": "b853db3264119aa9",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "1c01f4768b7d6a05",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "/Users/ben/Documents/NotesMatrix",
-                      "focus": false,
-                      "profile": {
-                        "args": [
-                          "--login"
-                        ],
-                        "executable": "/bin/zsh",
-                        "followTheme": true,
-                        "name": "",
-                        "platforms": {
-                          "darwin": true
-                        },
-                        "pythonExecutable": "python3",
-                        "restoreHistory": false,
-                        "rightClickAction": "copyPaste",
-                        "successExitCodes": [
-                          "0",
-                          "SIGINT",
-                          "SIGTERM"
-                        ],
-                        "terminalOptions": {
-                          "documentOverride": null
-                        },
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "profileSourceId": "darwinIntegratedDefault",
-                      "serial": null
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "terminal",
-                  "title": "终端：zsh"
-                }
-              }
-            ]
+            "id": "515e457a0a508655",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/sources/claude-memory-guide.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "claude-memory-guide"
+            }
+          },
+          {
+            "id": "4f2f7cd7e670e094",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "保姆级教程！手把手教你写出好用又安全的专属 Skill"
+            }
           }
         ],
-        "direction": "horizontal"
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -251,17 +253,24 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "1c01f4768b7d6a05",
+  "active": "e2c5b6a0bda73ee3",
   "lastOpenFiles": [
+    "wiki/concepts/skill-system.md",
+    "wiki/sources/skill-practical-guide.md",
+    "wiki/sources/skill-beginners-tutorial.md",
+    "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
+    "wiki/sources/claude-memory-guide.md",
+    "wiki/concepts/model-context-protocol.md",
+    "wiki/concepts/llm-wiki-methodology.md",
+    "wiki/concepts/claude-md-configuration.md",
+    "raw/clippings/如何写好 Skill：一份实战经验手册.md",
     "LLM Wiki.md",
+    "Clippings/如何写好 Skill：一份实战经验手册.md",
+    "Clippings",
     "CLAUDE.md",
     "LLM Wiki 方法论.md",
-    "wiki/concepts/claude-md-configuration.md",
     "wiki/sources/llm-wiki-idea.md",
-    "wiki/concepts/llm-wiki-methodology.md",
-    "wiki/concepts/model-context-protocol.md",
     "wiki/sources/mcp-paper.md",
-    "wiki/sources/claude-memory-guide.md",
     "wiki/log.md",
     "wiki/index.md",
     "raw/papers/Agent工具与模型上下文协议MCP.pdf",
@@ -275,7 +284,6 @@
     "raw/clippings",
     "raw/assets",
     "raw/articles",
-    "raw",
     "欢迎.md"
   ]
 }

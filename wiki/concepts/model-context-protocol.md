@@ -46,6 +46,19 @@ MCP 采用客户端-服务器架构：
 2. **数据分析** — 连接数据库和数据处理工具
 3. **知识管理** — 与本笔记库中 [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] 结合，作为搜索和检索工具
 4. **DevOps** — 访问监控系统、部署管道等
+5. **Skill 工具层** — 为 [[wiki/concepts/skill-system|Skill 系统]] 提供标准化的外部服务连接
+
+## MCP 与 Skill 的关系
+
+在 [[wiki/concepts/skill-system|Skill 系统]] 中，MCP 作为 AI Agent 的标准化工具协议，与 Skill 配合使用：
+
+| | MCP | HTTP 直接调用 |
+|---|-----|-------------|
+| 定位 | AI Agent 的标准化工具协议 | 通用网络通信协议 |
+| 适用场景 | 高频复用、多平台共享、需统一鉴权 | 一次性简单调用、对接老系统 |
+| Skill 中的写法 | 只说"做什么"，MCP 负责连接 | 在脚本中写完整请求代码 |
+
+**最佳实践**：MCP 管连接，Skill 管流程，HTTP 脚本兜底处理 MCP 顾不上的场景。优先使用 MCP 生态已有的 Server，避免为每个 API 都封装 MCP Server。
 
 ## 与 LLM Wiki 的关系
 
@@ -58,7 +71,9 @@ MCP 可以作为 LLM Wiki 架构中的工具层：
 
 - [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]]
 - [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]]
+- [[wiki/concepts/skill-system|Skill 系统]] — MCP 作为 Skill 的外部服务连接层
 
 ## 参考源
 
 - [[wiki/sources/mcp-paper|Agent 工具与 MCP 协议]]
+- [[wiki/sources/skill-practical-guide|Skill 实战经验手册]] — 第 6 章详细讨论 MCP vs HTTP
