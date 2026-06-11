@@ -51,7 +51,19 @@ AI Agent 的能力由十个基础概念分层构建：
 LLM 与外部工具交互的协议机制。LLM 输出结构化函数调用请求，由运行时执行并返回结果。核心组件：Tool Schema（工具描述）、Tool Selection（工具选择）、Parameter Extraction（参数提取）。
 
 ### 4. RAG（检索增强生成）
-通过外部知识检索增强 LLM 生成质量。将"知识存储"和"知识推理"解耦——知识存入可实时更新的向量数据库，LLM 专注于推理和生成。关键策略：混合检索（Dense + Sparse）、Reranker 精排、Query 改写。
+通过外部知识检索增强 LLM 生成质量。将"知识存储"和"知识推理"解耦——知识存入可实时更新的向量数据库，LLM 专注于推理和生成。详见独立概念页 [[wiki/concepts/rag|RAG]]。
+
+**六大核心链路**：数据预处理 → 文本切分（Chunking）→ 向量化（Embedding）→ 检索（Retrieval）→ 提示构造 → 生成与后处理。每个环节都直接影响最终效果。
+
+**关键策略**：
+- **混合检索**：BM25（关键词）+ 向量相似度加权融合，提升专业术语召回
+- **重排序（Reranking）**：粗召回 Top-100 → Cross-encoder 精排 Top-5，精度提升 15%–30%
+- **文本切分**：推荐递归切分，chunk_size 256–1024 tokens，overlap 10%–20%
+- **元数据过滤**：按时间、类别、来源等维度精确过滤
+
+**进阶演进**：Self-RAG（自反思判断）→ Corrective RAG（验证修正）→ Graph RAG（知识图谱多跳推理）。
+
+> 本知识库的 [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] 是 RAG 的替代范式——知识在摄取时编译而非查询时检索。参见 [[wiki/queries/rag-vs-llm-wiki|对比分析]]。
 
 ### 5. Memory（记忆系统）
 分层信息存储与检索机制，模拟人类记忆：

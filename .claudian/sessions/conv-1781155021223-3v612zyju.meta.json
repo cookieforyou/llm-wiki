@@ -1,0 +1,24 @@
+{
+  "id": "conv-1781155021223-3v612zyju",
+  "providerId": "claude",
+  "title": "Summarize article and cross-reference with wiki",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781155021224,
+  "updatedAt": 1781155500934,
+  "lastResponseAt": 1781155500934,
+  "sessionId": "398e23d5-004f-4b07-aabb-5b9f6370ac44",
+  "providerState": {
+    "providerSessionId": "398e23d5-004f-4b07-aabb-5b9f6370ac44"
+  },
+  "currentNote": "raw/clippings/RAG 全流程深度实战指南：从原理剖析到工业级落地（附完整代码与避坑手册）.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 120,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 61568,
+    "contextWindow": 200000,
+    "contextTokens": 61688,
+    "percentage": 31,
+    "contextWindowIsAuthoritative": true
+  }
+}

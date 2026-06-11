@@ -35,3 +35,9 @@
 - **操作：** ingest
 - **涉及页面：** [[wiki/sources/ai-agent-10-core-concepts]], [[wiki/concepts/ai-agent]], [[wiki/concepts/model-context-protocol]], [[wiki/concepts/skill-system]], [[wiki/index.md]]
 - **要点：** 处理 raw/articles/ 中新增的 AI Agent 深度剖析文章（12.8 万字，10 个概念 × 6 维度）。创建源摘要页面，创建 AI Agent 概念页面作为十大概念的聚合枢纽（含分层架构、完整工作流、落地路线图），更新 MCP 页面补充 M×N 问题框架和跨方案对比，更新 Skill 页面补充 Agent 架构定位和生态视角。
+
+## [2026-06-11] ingest | RAG 全流程深度实战指南
+
+- **操作：** ingest
+- **涉及页面：** [[wiki/sources/rag-practical-guide]], [[wiki/concepts/rag]], [[wiki/queries/rag-vs-llm-wiki]], [[wiki/concepts/ai-agent]], [[wiki/concepts/llm-wiki-methodology]], [[wiki/index.md]]
+- **要点：** 处理 raw/clippings/ 中新增的 RAG 实战指南（CSDN，9500 字）。创建源摘要页面（含六大模块核心摘要与代码要点）；创建 RAG 概念页面（涵盖六大模块链路、进阶演进、评估指标、应用场景）；创建 RAG vs LLM Wiki 对比查询页面（含决策树与混合架构建议）；扩展 AI Agent 页面的 RAG 子章节（补充切分策略、检索策略、进阶演进）；更新 LLM Wiki 页面引用链接至新 RAG 概念页和对比查询页。
