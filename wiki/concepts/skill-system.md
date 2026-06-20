@@ -2,19 +2,33 @@
 title: "Skill 系统"
 type: concept
 created: 2026-06-10
-updated: 2026-06-10
-tags: [skill, claude, anthropic, prompt-engineering, best-practice]
-sources: [skill-beginners-tutorial, skill-practical-guide]
-aliases: [Skill, Skills, Claude Skill, SKILL.md, 技能包]
+updated: 2026-06-20
+tags: [skill, enterprise, methodology, design-pattern, ai, agent, best-practice]
+sources: [skill-beginners-tutorial, skill-practical-guide, enterprise-skill-guide, ai-agent-10-core-concepts]
+aliases: [Skill, Skills, Claude Skill, SKILL.md, 技能包, 能力单元]
 ---
 
 # Skill 系统
 
-Skill 是为 AI 编程助手（Claude Code、CodeBuddy、Cursor 等）添加的"能力包"——一种 **结构化的 Prompt Engineering**，通过标准文件格式将领域知识、操作流程和最佳实践转化为 AI 可理解、可执行的指令集。
+Skill 是为 AI Agent 添加的结构化能力单元——一个文件夹，核心是一个 `SKILL.md` 文件，将专业知识、执行脚本、参考资料打包成模块化的"技能单元"，让 Agent 在特定工作场景中像"老同事"一样专业地执行任务。
 
-## 核心概念
+更本质地说：Skill 是一份**写给模型的、结构化的、可长期复用的操作手册**，而非写给人看的文档。
 
-### Skill 与提示词的区别
+---
+
+## 核心认知
+
+### Skill 不是什么——常见误区
+
+| 误区 | 正确理解 |
+|------|---------|
+| Skill = 一段 Prompt | Prompt 是即兴对话，Skill 是**模块化能力单元**，强调稳定复用 |
+| Skill 是写给人看的文档 | SKILL.md 是**写给模型的指令**，需结构化、约束行为边界 |
+| Skill 就是调 API | Skill 可以不含任何代码，纯 Markdown 指令即可工作 |
+| 把所有知识堆进一个 Skill | Skill 遵循"单一职责"，每个 Skill 只干一件事 |
+| Skill 是平台特定功能 | 它是**开放标准**，已被 30+ 主流 Agent 工具支持 |
+
+### Skill 与 Prompt 的区别
 
 | | 提示词（Prompt） | Skill |
 |---|---|---|
@@ -23,28 +37,108 @@ Skill 是为 AI 编程助手（Claude Code、CodeBuddy、Cursor 等）添加的"
 | 输出稳定性 | 不稳定 | 每次输出稳定 |
 | 触发方式 | 手动输入 | AI 根据 description 自动匹配 |
 
-### 什么时候该写 Skill
-
-一件事最近一周做了 **3 次以上**，且做法基本固定，就值得写成 Skill。
-
 ### Skill 与 Rule 的区别
 
 - **Rule** 是"底线"——全局约束，每次对话都自动加载（如编码规范、安全红线）
 - **Skill** 是"技能"——按需触发的能力包（如迁移流程、审查模板）
 
-## 三层加载机制（Level 1/2/3）
+### 什么时候该写 Skill
 
-| 层级 | 加载时机 | 内容 | Token 成本参考 |
-|------|---------|------|---------------|
-| Level 1 | 常驻（每次对话） | name + description（100 字以内） | 约 50-150 Token / 个 |
-| Level 2 | 匹配触发时加载 | SKILL.md 正文（建议 ≤ 500 行） | 约 2,000-5,000 Token |
-| Level 3 | 执行中按需读取 | 脚本、参考文档、模板 | 按实际引用大小 |
+一件事最近一周做了 **3 次以上**，且做法基本固定，就值得写成 Skill。
 
-> ⚠️ **Skill 不是免费的**——每个 Skill 的 Level 1 元数据始终占用上下文。20 个 Skill 光 Level 1 就要吃掉 1000-3000 Token。
+### Skill 在 AI 技术栈中的定位
 
-**核心原则**：Level 1 越精准越好（决定触发时机），Level 2 越精简越好（减少 Token 消耗），Level 3 放心放（按需加载不占常驻空间）。
+```
+┌─────────────────────────────────────────────────────────┐
+│                    AI Agent 技术栈                        │
+├──────────┬──────────────────────────────────────────────┤
+│  MCP     │  给 Agent 接「外部数据源和工具」（手和脚）       │
+├──────────┼──────────────────────────────────────────────┤
+│  Skill   │  给 Agent 装「专业知识和 SOP」（大脑和经验）     │
+├──────────┼──────────────────────────────────────────────┤
+│  Agent   │  调度中枢：理解意图 → 调 Skill → 调 MCP → 执行  │
+├──────────┼──────────────────────────────────────────────┤
+│  Workflow│  编排多个 Agent/Skill 的复杂流程                │
+└──────────┴──────────────────────────────────────────────┘
+```
 
-## 文件结构
+- **MCP** 解决的是"Agent 能干什么"（能力边界）
+- **Skill** 解决的是"Agent 怎么干"（执行质量）
+
+---
+
+## 企业级标准
+
+### "能用"与"企业级"的鸿沟
+
+一个"能用的 Skill"只需要一个 SKILL.md 文件就够了。但一个**企业级标准的 Skill** 需要在以下维度全部达标：
+
+| 维度 | 个人级 Skill | 企业级 Skill |
+|------|-------------|-------------|
+| **可发现性** | 靠口头告知 | description 语义精准，Agent 自动匹配 |
+| **确定性** | 依赖模型即兴发挥 | 关键步骤用脚本固化，行为可预测 |
+| **可维护性** | 单文件一改全改 | 模块化分层，独立演进 |
+| **可测试性** | 试几次觉得行就用 | 有标准化测试用例和验收标准 |
+| **可组合性** | 独立使用 | 可与其他 Skill 协同工作 |
+| **版本管理** | 无版本概念 | 语义化版本，变更可追溯 |
+| **权限控制** | 无 | 明确的工具权限边界 |
+| **知识沉淀** | 写死在指令中 | references 独立管理，可跨 Skill 共享 |
+| **容错设计** | 无 | 包含验证节点和回退机制 |
+| **团队协作** | 个人使用 | 团队共享，角色分工明确 |
+
+### 三大设计原则
+
+#### 原则一：渐进式披露（见下文三层加载机制）
+
+#### 原则二：确定性降级
+
+> **凡是能用脚本做的事，绝不让模型去"写代码做"。**
+
+```
+❌ "请写一段 Python 脚本，把 CSV 文件按日期列排序，然后导出为 Excel"
+   → 模型每次生成的代码可能不同，行为不可预测
+
+✅ "执行 scripts/sort_and_export.py，传入参数：
+   --input {csv_path} --output {excel_path} --sort-by date"
+   → 同一个脚本永远是同一个行为，确定性 100%
+```
+
+#### 原则三：强制流程固化
+
+> **在关键节点设置"验证 → 修正 → 再验证"闭环，不允许 Agent 跳过。**
+
+```
+Step 3: 生成初稿后，必须执行以下检查清单：
+- [ ] 所有数字与源数据一致
+- [ ] 没有使用"可能""也许"等模糊表述
+- [ ] 格式符合 references/report-template.md
+
+如有任何一项不通过，返回 Step 2 修正后再继续。
+```
+
+---
+
+## 渐进式披露：三层加载架构
+
+这是 Skill 最精髓的设计理念，核心原因是防止**上下文污染（Context Pollution）**——如果一次性塞给模型所有规则：
+- Token 消耗飙升
+- 模型注意力被无关信息分散
+- 执行准确率显著下降
+- 多个 Skill 同时加载时相互干扰
+
+| 层级 | 加载时机 | 内容 | Token 成本 |
+|------|---------|------|-----------|
+| **L1** | 始终加载（常驻） | YAML frontmatter：name + description（100 字以内） | 约 50-150 Token / 个 |
+| **L2** | 匹配触发时按需加载 | SKILL.md 正文指令（建议 ≤ 500 行） | 约 2,000-5,000 Token |
+| **L3** | 执行中按需读取 | scripts/ references/ assets/ | 按实际引用大小 |
+
+> ⚠️ **Skill 不是免费的**——每个 Skill 的 L1 元数据始终占用上下文。20 个 Skill 光 L1 就要吃掉 1000-3000 Token。
+
+**核心原则**：L1 越精准越好（决定触发时机），L2 越精简越好（减少 Token 消耗），L3 放心放（按需加载不占常驻空间）。
+
+---
+
+## 标准目录结构
 
 ### 最小结构
 ```
@@ -52,54 +146,274 @@ skill-name/
 └── SKILL.md
 ```
 
-### 标准结构
+### 企业级标准结构
 ```
-skill-name/
-├── SKILL.md              # 核心指令文件（必需）
-├── scripts/              # 可执行脚本（可选）
-├── references/           # 参考文档（可选）
-└── assets/               # 静态资源（可选）
+skill-name/                          # 小写 + 连字符命名
+│
+├── SKILL.md                         # 【必需】核心指令文件
+│   ├── YAML Frontmatter             # L1：元数据（始终加载）
+│   │   ├── name:                    #   Skill 唯一标识
+│   │   ├── description:             #   语义触发器（最关键！）
+│   │   ├── version:                 #   语义化版本号
+│   │   ├── allowed-tools:           #   允许使用的工具列表
+│   │   └── metadata:                #   tags, trigger-mode, priority
+│   └── Markdown Instructions        # L2：正文指令（按需加载）
+│       ├── ## 触发条件
+│       ├── ## 前置准备
+│       ├── ## 执行流程
+│       ├── ## 输出规范
+│       ├── ## 异常处理
+│       └── ## 参考资料引用
+│
+├── scripts/                         # 【可选】L3：确定性执行脚本
+│   ├── runner.py
+│   ├── validator.sh
+│   └── requirements.txt
+│
+├── references/                      # 【可选】L3：按需加载参考文档
+│   ├── api-spec.md
+│   ├── style-guide.md
+│   ├── checklist.md
+│   └── examples/
+│
+└── assets/                          # 【可选】L3：静态资源
+    ├── templates/
+    ├── configs/
+    └── media/
 ```
 
-### 模块化结构（复杂场景）
-```
-project-migration/                  # 主 Skill：流程总览与编排
-├── SKILL.md
-└── steps/                          # 子步骤文档
-    ├── 00-environment-setup.md
-    ├── 01-dependency-update.md
-    └── 02-api-migration.md
+### YAML Frontmatter 关键字段规范
+
+```yaml
+name: weekly-report-generator          # 小写+连字符，全局唯一
+description: >                         # 150-300 字符，必须包含触发关键词
+  根据项目管理工具中的任务数据，自动生成团队周报。
+  当用户提到"写周报""生成周报""本周总结""weekly report"时使用此技能。
+version: 1.2.0                         # 语义化版本
+allowed-tools:                         # 明确权限边界
+  - Read
+  - Write
+  - Bash
+metadata:
+  tags: [report, weekly, team]
+  trigger-mode: auto                   # auto | manual | both
+  priority: high
+  scope: team
 ```
 
-## Description 编写
+---
 
-Description 是 Skill 最重要的字段——它决定了 AI 什么时候触发这个 Skill。
+## Description 编写——灵魂字段
+
+description 是 Skill 被 Agent 发现的**唯一途径**。写不好，Skill 就等于不存在。
 
 ### 公式
+
 ```
-好的 description = 功能描述 + 触发关键词
+[做什么] + [什么时候触发（关键词列表）] + [输入是什么] + [输出是什么]
 ```
 
-### 示例
+### 示例对比
+
 ```yaml
-# ✅ 好的 description
-description: |
-  将故事文本转换为AI视频生成所需的分镜脚本。
-  当用户说"做分镜"、"分镜脚本"、"故事转分镜"时触发。
+# ❌ 太模糊
+description: 帮助生成报告
 
-# ❌ 太模糊，AI 不知道什么时候该用
-description: 帮忙处理文档
+# ⚠️ 只有功能描述，缺少触发关键词
+description: 生成团队周报，包含本周完成的工作和下周计划
 
-# ❌ 太宽泛，什么写作任务都会触发
-description: 帮助用户写文章
+# ✅ 优秀的 description
+description: >
+  团队周报自动生成器。当用户提到"写周报""生成周报""本周总结"
+  "团队周报""weekly report""周五报告"时使用此技能。
+  能从项目管理工具、代码仓库、协作文档中自动采集数据，
+  按标准模板生成结构化的团队周报。
 ```
 
-### 触发评估
-一个实用技巧：自己想 20 个问题（一半该触发、一半不该触发），测试 AI 是否每次都能正确判断。
+### 触发评估技巧
 
-## SKILL.md 编写规范
+自己想 20 个问题（一半该触发、一半不该触发），测试 Agent 是否每次都能正确判断。
 
-### 多模块骨架（9 个关键问题）
+---
+
+## 工作流识别与拆解
+
+### 四象限筛选法
+
+不是所有工作都值得沉淀为 Skill。用以下矩阵筛选：
+
+```
+                        高频重复
+                           │
+              ┌────────────┼────────────┐
+              │  ⭐ 优先沉淀  │  考虑自动化  │
+              │  （日报周报、 │  （RPA 更合适）│
+              │   代码审查）  │            │
+              ├────────────┼────────────┤
+              │  暂不处理    │  高价值沉淀  │
+              │  （偶发杂务） │  （尽调报告） │
+              └────────────┼────────────┘
+                           │
+                        低频偶发
+        ←── 低价值 ──────────────────── 高价值 ──→
+```
+
+**优先沉淀的特征**：高频重复 + 有明确步骤 + 有判断标准 + 有固定产出 + 有经验门槛
+
+### 五步解剖法
+
+1. **录制（Record）** — 完整记录一次工作流的执行过程
+2. **抽象（Abstract）** — 从具体操作中提炼通用模式
+3. **分层（Layer）** — 拆分为决策层（SKILL.md 指令）、执行层（scripts/）、知识层（references/）
+4. **标注（Annotate）** — 为每个步骤标注属性（🤖 可自动化 / 👤 需人工 / 🔧 需工具 / ⚠️ 风险点 / 🔄 分支点）
+5. **验证（Validate）** — 让领域专家审查拆解结果
+
+---
+
+## 五大核心设计模式
+
+Google Cloud Tech 总结的 Skill 五种核心设计模式：
+
+### 模式一：Tool Wrapper（工具包装器）
+
+**解决问题**：让 Agent 瞬间成为某个特定工具/库/框架的专家
+
+**结构**：frontmatter + 核心规则 + 最佳实践 + 常见陷阱 + 参考文档
+
+**适用场景**：框架规范、API 使用指南、工具最佳实践
+
+```markdown
+---
+name: docker-expert
+description: >
+  Docker 容器化部署专家。当用户需要编写 Dockerfile、docker-compose、
+  处理容器网络、卷挂载、多阶段构建等问题时使用。
+---
+
+# Docker 专家技能
+
+## 核心规则
+1. 始终使用多阶段构建减小镜像体积
+2. 非 root 用户运行（创建 appuser）
+3. 生产环境使用 alpine/slim 基础镜像
+
+## Dockerfile 最佳实践
+- COPY 顺序：先依赖文件，再源代码（利用缓存层）
+- 合并 RUN 指令减少层数
+
+## 常见陷阱
+- 不要在 RUN 中存储密钥
+- 避免使用 `latest` 标签
+```
+
+### 模式二：Generator（生成器）
+
+**解决问题**：基于可复用模板生成结构化文档
+
+**结构**：信息收集 → 结构生成 → 内容填充 → 质量检查 → 输出
+
+**适用场景**：报告生成、文档生成、代码脚手架、邮件模板
+
+### 模式三：Reviewer（审查器）
+
+**解决问题**：按检查清单逐项审查并给出分级结论
+
+**结构**：快速扫描 → 逐维度审查（每个维度独立评分）→ 生成审查报告（严重/改进/亮点）
+
+**适用场景**：代码审查、文档校对、合规检查、安全审计
+
+### 模式四：Inversion（反转）
+
+**解决问题**：Agent 固有的"猜测并立即生成"倾向，导致输出偏离需求
+
+**核心原则**：在充分理解需求之前，绝对不要给出解决方案
+
+**结构**：理解阶段（结构化提问）→ 确认阶段 → 方案阶段（仅在确认后开始）
+
+**适用场景**：需求分析、方案设计、问题诊断、咨询类工作流
+
+### 模式五：Pipeline（流水线）
+
+**解决问题**：强制 Agent 按顺序执行复杂的多步骤流程
+
+**特点**：每个阶段必须完成并通过检查点后才能进入下一阶段，不允许跳过
+
+**适用场景**：数据分析、报告生成、项目交付、审计流程
+
+### 模式组合使用
+
+实际企业场景中，一个复杂的 Skill 往往是多种模式的组合：
+
+```
+竞品分析 Skill = Inversion（先收集需求）
+                + Pipeline（按阶段分析）
+                + Generator（生成报告）
+                + Tool Wrapper（调用数据源 API）
+```
+
+---
+
+## 指令编写黄金法则
+
+### 法则一：具体化，不要抽象化
+```
+❌ "请生成一份高质量的报告"
+✅ "生成一份 Markdown 格式的报告，长度 1500-2500 字，
+   包含以下章节：摘要、已完成工作（表格形式）、
+   风险与阻塞（含严重度标签）、下周计划（含优先级）"
+```
+
+### 法则二：用约束代替自由
+```
+❌ "你可以自由发挥来组织报告内容"
+✅ "报告必须遵守以下约束：
+   - 不使用'可能''大概'等模糊词
+   - 每个风险项必须附带建议措施
+   - 数据必须来自 Phase 2 的采集结果，严禁编造"
+```
+
+### 法则三：提供正反例
+```markdown
+## 好的风险描述（学习这个）
+"🔴 Jira API 响应时间从 200ms 升至 2000ms，影响数据采集效率。
+ 已与运维团队沟通，预计周三修复。"
+
+## 差的风险描述（避免这个）
+"🟡 系统有点慢，可能影响进度。"
+```
+
+### 法则四：明确告诉 Agent 什么不能做
+```markdown
+## 禁止行为
+- ❌ 不得编造任何不存在的数据或工作项
+- ❌ 不得在没有用户确认的情况下发送报告
+- ❌ 不得跳过 Phase 5 的质量验证
+```
+
+### 脚本调用最佳实践
+
+在 SKILL.md 中引用脚本时，明确给出预期输出和失败处理方式：
+
+```markdown
+### Step 3: 数据聚合
+执行以下命令（不要自己写代码，直接调用脚本）：
+```bash
+python scripts/aggregate_data.py ... --output aggregated.json
+```
+
+**预期输出：**
+- 成功时：打印统计摘要，生成 aggregated.json
+- 失败时：打印错误信息，请提示用户检查输入数据格式
+
+**⚠️ 重要：如果脚本执行失败，不要尝试自己重写脚本逻辑，
+而是将错误信息完整呈现给用户，请求协助。**
+```
+
+---
+
+## SKILL.md 正文编写规范
+
+### 九问框架
 
 1. **目标**是什么
 2. **什么情况下触发**
@@ -111,35 +425,14 @@ description: 帮助用户写文章
 8. 搞不定的**时候怎么处理**
 9. 什么时候去**读参考文件**
 
-### 正文编写原则
+### 编写原则
 
 1. **只写 AI 不知道的东西**——不需要教 AI 已知的概念
 2. **流程拆成步骤，带上决策分支**——"如果 XX 情况，如何处理"
 3. **用示例代替解释**——一个正例 + 一个反例胜过长篇说明
-4. **写任务指令，不要堆身份设定**——"你是一个资深 XX 专家"效果不稳定
-5. **信息分层，按需加载**——核心规则放主文件，参考资料放独立文件
-6. **复杂流程加验证环节**——关键步骤后插入检查点
-7. **先跑起来，再慢慢打磨**——很难一次做到完美
-
-### 示例对比的三种方式
-
-```
-方式一：注释标注（适合简单变更）
-// Before
-import oldhttp "github.com/example/old-http-client"
-// After
-import uhttp "github.com/example/unified-httpclient"
-
-方式二：完整文件对比（适合复杂变更）
-...（完整的 Before/After 代码块）
-
-方式三：Diff 格式（最直观）
---- a/pkg/request/client.go
-+++ b/pkg/request/client.go
-@@ -3,7 +3,7 @@
--import oldhttp "github.com/example/old-http-client"
-+import uhttp "github.com/example/unified-httpclient"
-```
+4. **信息分层，按需加载**——核心规则放主文件，参考资料放独立文件
+5. **复杂流程加验证环节**——关键步骤后插入检查点
+6. **先跑起来，再慢慢打磨**——很难一次做到完美
 
 ### 安全性规范
 
@@ -149,7 +442,103 @@ import uhttp "github.com/example/unified-httpclient"
 - 防范 Prompt 注入——区分"指令"和"数据"
 - 网络请求使用 HTTPS 并设置超时
 
-## 常用反模式
+---
+
+## 生命周期与治理
+
+### 生命周期
+
+```
+┌────────┐    ┌────────┐    ┌────────┐    ┌────────┐    ┌────────┐
+│  识别   │───→│  设计   │───→│  开发   │───→│  测试   │───→│  发布   │
+└────────┘    └────────┘    └────────┘    └────────┘    └────────┘
+                                                          │
+     ┌────────────────────────────────────────────────────┘
+     ▼
+┌────────┐    ┌────────┐    ┌────────┐
+│  运营   │───→│  迭代   │───→│  退役   │
+└────────┘    └────────┘    └────────┘
+```
+
+### 版本管理
+
+```yaml
+version: 2.1.0
+# 主版本：不兼容的结构性变更（如流程重排）
+# 次版本：新增功能或步骤（向后兼容）
+# 修订号：修正错误、优化措辞
+
+metadata:
+  changelog:
+    - version: 2.1.0
+      date: 2026-06-15
+      changes: "新增 Phase 5 质量验证步骤"
+    - version: 1.0.0
+      date: 2026-04-01
+      changes: "初始版本"
+```
+
+### 团队协作模式
+
+| 角色 | 职责 |
+|------|------|
+| **Skill Owner** | 负责整体质量和演进，审核变更，处理反馈 |
+| **Domain Expert** | 提供工作流专业知识，验证内容准确性 |
+| **Skill Developer** | 编写 SKILL.md 和脚本，维护 references/assets |
+| **End User** | 日常使用，提供反馈，报告异常 |
+
+### 质量度量指标
+
+| 指标 | 说明 | 目标值 |
+|------|------|--------|
+| 触发准确率 | Agent 正确识别并加载 Skill | > 95% |
+| 执行成功率 | Skill 执行完成且输出可用 | > 90% |
+| 人工干预率 | 需要用户手动修正的比例 | < 20% |
+| 用户满意度 | 用户对输出质量的评分 | > 4/5 |
+
+### 持续优化循环
+
+```
+每次使用后记录：
+1. 哪些步骤执行顺利？
+2. 哪些步骤 Agent 理解偏差？
+3. 用户做了哪些手动修正？
+4. 有无新增的边界情况？
+
+定期 Review（建议每月一次）：
+1. 分析使用日志和反馈
+2. 更新 SKILL.md 指令
+3. 补充 references 知识库
+4. 更新测试用例
+```
+
+### 存储与分发
+
+| 级别 | 存储位置 | 共享范围 |
+|------|---------|---------|
+| 个人级 | `~/.claude/skills/` | 仅自己 |
+| 项目级 | `.claude/skills/` | 项目参与者 |
+| 团队级 | 共享 Git 仓库 + 软链接 | 团队成员 |
+| 组织级 | 内部 Skill Registry | 全组织 |
+
+### 测试策略
+
+创建标准化测试用例：
+
+```
+skill-name/tests/
+├── test-data/           # 模拟数据
+├── expected-output/     # 期望输出
+└── test-cases.md       # 测试用例文档
+```
+
+使用效果评估：对比"有 Skill"和"无 Skill"的输出质量，触发准确率 ≥ 85%，效果通过率 ≥ 80%。
+
+---
+
+## 常见反模式与错误
+
+### 六大反模式
 
 | 反模式 | 症状 | 解法 |
 |--------|------|------|
@@ -160,24 +549,26 @@ import uhttp "github.com/example/unified-httpclient"
 | 写死数值 | 硬编码配置 | 给判断规则和参考范围 |
 | 当 Wiki 写 | 背景 300 行正文 50 行 | 背景放 references/ |
 
-## 生命周期管理
+### 十大常见错误
 
-- **版本控制**：metadata 中标版本号，语义化版本（修复→1.1，新增→1.2，重写→2.0）
-- **跨项目复用**：从项目级同步到用户级 `~/.claude/skills/`
-- **团队协作**：像代码一样 PR Review，维护 CHANGELOG
-- **持续优化**：从具体反馈中总结规律，越精简越好
+| # | 错误 | 解决方案 |
+|---|------|---------|
+| 1 | Skill 从未被触发 | description 覆盖用户可能的表述方式 |
+| 2 | Agent 跳过关键步骤 | 使用强制语言 + 检查点 |
+| 3 | 输出质量不稳定 | 关键步骤用脚本固化 |
+| 4 | 上下文溢出 | 使用渐进式披露 |
+| 5 | Agent 编造数据 | 明确禁止虚构 + 验证步骤 |
+| 6 | 多 Skill 冲突 | 设定清晰边界和区分关键词 |
+| 7 | 脚本执行失败 | 写明依赖安装和错误处理 |
+| 8 | 模板格式错乱 | 给出正反例 + 格式验证 |
+| 9 | Skill 过时失效 | 建立 Review 机制和 changelog |
+| 10 | 团队不会用 | 编写 Quick Start 指南 |
 
-## 工程化评估
-
-Anthropic Skill Creator 提供系统化评估：
-
-1. **触发评估**：自动生成正例/反例/边界用例，计算触发准确率和召回率
-2. **效果评估**：基于测试用例，对比"有 Skill"和"无 Skill"的输出质量
-3. **达标标准**：触发准确率 ≥ 85%，效果通过率 ≥ 80%
+---
 
 ## 在 Agent 架构中的定位
 
-在 [[wiki/concepts/ai-agent|AI Agent]] 的十大核心概念架构中，Skills 属于**能力封装层**：
+在 [[wiki/concepts/ai-agent|AI Agent]] 的架构中，Skills 属于**能力封装层**：
 
 | 层级 | 概念 | 类比 |
 |------|------|------|
@@ -189,9 +580,7 @@ Anthropic Skill Creator 提供系统化评估：
 - **Function Calling** 是 Skills 的一种底层实现方式
 - **MCP** 是 Skills 调用外部服务的标准化接口协议
 
-## Skill 生态系统
-
-成熟的 Skill 系统包含以下组件：
+### Skill 生态系统
 
 ```
 Skill Registry（注册中心） → 管理所有可用技能
@@ -200,27 +589,28 @@ Skill Composition（编排）  → 多个技能组合为工作流
 Skill Marketplace（市场）  → 技能的共享和分发平台
 ```
 
-## 与 MCP 的关系
-
-Skill 需要调用外部服务时有两种选择：
+### 与 MCP 的关系
 
 | | MCP | HTTP 直接调用 |
 |---|-----|-------------|
 | 定位 | AI Agent 的标准化工具协议 | 通用网络通信协议 |
-| 适用 | 高频复用、多平台共享、需统一鉴权 | 一次性简单调用、对接老系统 |
-| 写法 | Skill 中只说"做什么"，MCP 负责连接 | 在脚本中写完整请求代码 |
+| 适用 | 高频复用、多平台共享、需统一鉴权 | 一次性简单调用 |
+| 最佳实践 | MCP 管连接，Skill 管流程，HTTP 脚本兜底 |
 
-**最佳实践**：MCP 管连接，Skill 管流程，HTTP 脚本兜底。
+---
 
 ## 相关概念
 
-- [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]] — Skill 的配置文件体系
-- [[wiki/concepts/model-context-protocol|Model Context Protocol (MCP)]] — Skill 外部服务调用的标准化方式
 - [[wiki/concepts/ai-agent|AI Agent]] — Skills 在 Agent 架构中的定位
+- [[wiki/concepts/model-context-protocol|Model Context Protocol (MCP)]] — Skill 外部服务调用的标准化方式
+- [[wiki/concepts/claude-md-configuration|CLAUDE.md 配置系统]] — Skill 的配置文件体系
+- [[wiki/concepts/rag|RAG]] — Skill 中 references 的知识检索技术
 - [[wiki/concepts/llm-wiki-methodology|LLM Wiki 方法论]] — 本知识库的方法论基础
 
 ## 参考源
 
-- [[wiki/sources/skill-beginners-tutorial|Skill 保姆级入门教程]]
-- [[wiki/sources/skill-practical-guide|Skill 实战经验手册]]
+- [[wiki/sources/enterprise-skill-guide|企业级 AI Agent Skill 深度构建指南]] — 企业级 Skill 构建方法论
+- [[wiki/sources/skill-beginners-tutorial|Skill 保姆级入门教程]] — Skill 编写入门教程
+- [[wiki/sources/skill-practical-guide|Skill 实战经验手册]] — Skill 实战指南（腾讯技术工程）
+- [[wiki/sources/enterprise-agent-guide|从零到一搭建企业级 AI Agent 完全指南]] — 企业级 Agent 架构
 - [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]] — 第 9 节：Skills 系统视角

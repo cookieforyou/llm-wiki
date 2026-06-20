@@ -1,7 +1,7 @@
 # wiki 索引
 
-> 最后更新：2026-06-11
-> 页面总数：16
+> 最后更新：2026-06-20
+> 页面总数：18
 
 ## 概念
 
@@ -21,6 +21,8 @@
 - [[wiki/sources/skill-practical-guide|Skill 实战经验手册]] — Skill 编写的系统性实战指南（腾讯技术工程）
 - [[wiki/sources/ai-agent-10-core-concepts|AI Agent 十大核心概念深度剖析]] — AI Agent 十大核心概念的全息解构
 - [[wiki/sources/rag-practical-guide|RAG 全流程深度实战指南]] — RAG 六大核心模块的工程实践指南（含完整代码）
+- [[wiki/sources/enterprise-skill-guide|企业级 AI Agent Skill 深度构建指南]] — 企业级 Skill 构建的五种核心设计模式和完整方法论
+- [[wiki/sources/enterprise-agent-guide|从零到一搭建企业级 AI Agent 完全指南]] — 以报销审核为场景的企业级 Agent 端到端实施指南
 
 ## 查询
 

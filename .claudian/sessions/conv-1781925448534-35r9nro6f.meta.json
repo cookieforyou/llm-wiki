@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781925448534-35r9nro6f",
+  "providerId": "claude",
+  "title": "摄取两篇企业级 AI Agent 指南",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781925448534,
+  "updatedAt": 1781925846357,
+  "lastResponseAt": 1781925846357,
+  "sessionId": "b882e599-7ebf-464b-b29e-c3a92c282aed",
+  "providerState": {
+    "providerSessionId": "b882e599-7ebf-464b-b29e-c3a92c282aed"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 36,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 109696,
+    "contextWindow": 200000,
+    "contextTokens": 109732,
+    "percentage": 55,
+    "contextWindowIsAuthoritative": true
+  }
+}

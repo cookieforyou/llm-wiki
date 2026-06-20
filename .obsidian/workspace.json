@@ -4,68 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b853db3264119aa9",
+        "id": "620e50dbc52a050d",
         "type": "tabs",
         "children": [
           {
-            "id": "1c01f4768b7d6a05",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "terminal:terminal",
-              "state": {
-                "terminal:terminal": {
-                  "cwd": "/Users/ben/Documents/NotesMatrix",
-                  "focus": false,
-                  "profile": {
-                    "args": [
-                      "--login"
-                    ],
-                    "executable": "/bin/zsh",
-                    "followTheme": true,
-                    "name": "",
-                    "platforms": {
-                      "darwin": true
-                    },
-                    "pythonExecutable": "python3",
-                    "restoreHistory": false,
-                    "rightClickAction": "copyPaste",
-                    "successExitCodes": [
-                      "0",
-                      "SIGINT",
-                      "SIGTERM"
-                    ],
-                    "terminalOptions": {
-                      "documentOverride": null
-                    },
-                    "type": "integrated",
-                    "useWin32Conhost": true
-                  },
-                  "profileSourceId": "darwinIntegratedDefault",
-                  "serial": null
-                }
-              },
-              "pinned": true,
-              "icon": "terminal",
-              "title": "终端：zsh"
-            }
-          },
-          {
-            "id": "cbb7b4835eaacd82",
+            "id": "839f2ce847705f54",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/concepts/ai-agent.md",
+                "file": "raw/articles/从零到一搭建企业级 AI Agent 完全指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ai-agent"
+              "title": "从零到一搭建企业级 AI Agent 完全指南"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -137,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 319.5
   },
   "right": {
     "id": "c8bbec5cb869c5f9",
@@ -234,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 476.5
+    "width": 587.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -252,34 +208,34 @@
   },
   "active": "e2c5b6a0bda73ee3",
   "lastOpenFiles": [
+    "wiki/sources/enterprise-agent-guide.md",
+    "wiki/sources/enterprise-skill-guide.md",
+    "wiki/concepts/ai-agent.md",
+    "raw/articles/企业级 AI Agent Skill 深度构建指南.md",
+    "raw/articles/从零到一搭建企业级 AI Agent 完全指南.md",
+    "raw/articles/AI Agent 十大核心概念深度剖析.md",
+    "raw/clippings/RAG 全流程深度实战指南：从原理剖析到工业级落地（附完整代码与避坑手册）.md",
+    "raw/clippings/如何写好 Skill：一份实战经验手册.md",
+    "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
     "wiki/queries/rag-vs-llm-wiki.md",
     "wiki/log.md",
     "wiki/index.md",
-    "wiki/concepts/ai-agent.md",
     "wiki/concepts/llm-wiki-methodology.md",
     "wiki/concepts/rag.md",
     "wiki/sources/rag-practical-guide.md",
-    "raw/clippings/RAG 全流程深度实战指南：从原理剖析到工业级落地（附完整代码与避坑手册）.md",
     "CLAUDE.md",
     "wiki/sources/ai-agent-10-core-concepts.md",
-    "raw/articles/AI Agent 十大核心概念深度剖析.md",
     "LLM Wiki.md",
     "raw/clippings/Claude 如何记住你的项目.md",
     "wiki/sources/skill-practical-guide.md",
-    "raw/clippings/保姆级教程！手把手教你写出好用又安全的专属 Skill.md",
     "wiki/sources/skill-beginners-tutorial.md",
     "wiki/concepts/skill-system.md",
     "wiki/sources/mcp-paper.md",
     "wiki/concepts/model-context-protocol.md",
     "wiki/sources/llm-wiki-idea.md",
     "wiki/concepts/claude-md-configuration.md",
-    "wiki/sources/claude-memory-guide.md",
-    "raw/clippings/如何写好 Skill：一份实战经验手册.md",
-    "Clippings/如何写好 Skill：一份实战经验手册.md",
     "Clippings",
-    "LLM Wiki 方法论.md",
     "raw/papers/Agent工具与模型上下文协议MCP.pdf",
-    "Clippings/Claude 如何记住你的项目.md",
     "wiki/sources",
     "wiki/queries",
     "wiki/concepts",

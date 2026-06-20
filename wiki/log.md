@@ -36,6 +36,12 @@
 - **涉及页面：** [[wiki/sources/ai-agent-10-core-concepts]], [[wiki/concepts/ai-agent]], [[wiki/concepts/model-context-protocol]], [[wiki/concepts/skill-system]], [[wiki/index.md]]
 - **要点：** 处理 raw/articles/ 中新增的 AI Agent 深度剖析文章（12.8 万字，10 个概念 × 6 维度）。创建源摘要页面，创建 AI Agent 概念页面作为十大概念的聚合枢纽（含分层架构、完整工作流、落地路线图），更新 MCP 页面补充 M×N 问题框架和跨方案对比，更新 Skill 页面补充 Agent 架构定位和生态视角。
 
+## [2026-06-20] ingest | 两篇企业级 AI Agent 文章
+
+- **操作：** ingest
+- **涉及页面：** [[wiki/sources/enterprise-skill-guide]], [[wiki/sources/enterprise-agent-guide]], [[wiki/concepts/skill-system]], [[wiki/concepts/ai-agent]], [[wiki/index.md]]
+- **要点：** 处理 raw/articles/ 中新增的两篇文章。《企业级 AI Agent Skill 深度构建指南》补充了 Skill 系统的五大设计模式、企业级标准对比、工作流识别与拆解方法、生命周期治理等内容。《从零到一搭建企业级 AI Agent 完全指南》以报销审核为场景，补充了 AI Agent 的六层架构、编排引擎选型、LLM 分层策略、Guardrails 设计、Multi-Agent 协作模式、评估指标和生产级考量。创建 2 个源摘要页面，扩展 Skill 和 AI Agent 两个概念页面。
+
 ## [2026-06-11] ingest | RAG 全流程深度实战指南
 
 - **操作：** ingest
