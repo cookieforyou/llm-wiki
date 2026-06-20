@@ -66,7 +66,7 @@ paths:
 - 摄取、查询和健康检查的工作流
 - 页面的格式规范
 
-这正是本 NotesMatrix 知识库的搭建方式——`.claude/CLAUDE.md` 就是整个知识库的"宪法"。
+这正是本 llm-wiki 知识库的搭建方式——`.claude/CLAUDE.md` 就是整个知识库的"宪法"。
 
 ## 参考源
 

@@ -1,4 +1,4 @@
-# NotesMatrix 知识库
+# llm-wiki 知识库
 
 > 基于 **LLM Wiki 方法论**构建的持久化知识库。  
 > 核心理念：LLM 增量构建和维护维基，人类负责策展和探索。
@@ -20,7 +20,7 @@
 ## 📁 目录结构
 
 ```
-NotesMatrix/
+llm-wiki/
 │
 ├── 📄 CLAUDE.md                   # 🧠 模式：本文件 — 知识库宪法
 ├── 📄 LLM Wiki.md                 # 方法论英文原版
